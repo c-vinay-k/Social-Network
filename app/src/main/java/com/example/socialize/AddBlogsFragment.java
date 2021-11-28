@@ -133,6 +133,9 @@ public class AddBlogsFragment extends Fragment {
                     des.setError("Description Cant be empty");
                     Toast.makeText(getContext(), "Description can't be left empty", Toast.LENGTH_LONG).show();
                     return;
+                }else if(imageuri==null){
+                    Toast.makeText(getContext(), "Select an Image", Toast.LENGTH_LONG).show();
+                    return;
                 } else{
                     uploadData(titl,description);
                 }

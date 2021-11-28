@@ -96,6 +96,8 @@ List<com.example.socialize.ModelPost> posts;
                 for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
                     com.example.socialize.ModelPost modelPost=dataSnapshot1.getValue(com.example.socialize.ModelPost.class);
                     if(modelPost.getTitle().toLowerCase().contains(search.toLowerCase())||
+                            modelPost.getUemail().toLowerCase().contains(search.toLowerCase())||
+                            modelPost.getUname().toLowerCase().contains(search.toLowerCase())||
                     modelPost.getDescription().toLowerCase().contains(search.toLowerCase())) {
                         posts.add(modelPost);
                     }

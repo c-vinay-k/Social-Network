@@ -96,7 +96,8 @@ public class ProfileFragment extends Fragment {
                     String emaill=""+dataSnapshot1.child("email").getValue();
                     String image=""+dataSnapshot1.child("image").getValue();
                     String bioy=""+dataSnapshot1.child("bio").getValue();
-                    String agey=""+dataSnapshot1.child("age").getValue()+" years";
+                    String gen=""+dataSnapshot1.child("gender").getValue();
+                    String agey=""+dataSnapshot1.child("age").getValue()+" years"+"    "+gen;
                     nam.setText(name);
                     email.setText(emaill);
                     aget.setText(agey);

@@ -36,7 +36,7 @@ public class UnknownUserProfile extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     ImageView avatartv,covertv;
-    TextView nam,email,phone,aget;
+    TextView nam,email,phone,aget,biot;
     RecyclerView postrecycle;
     StorageReference storageReference;
     String storagepath="Users_Profile_Cover_image/";
@@ -62,6 +62,7 @@ public class UnknownUserProfile extends AppCompatActivity {
         nam=findViewById(R.id.uknametv);
         email=findViewById(R.id.ukemailtv);
         aget=findViewById(R.id.ukagetv);
+        biot=findViewById(R.id.ukbiotv);
         chat=findViewById(R.id.ukchat);
         postrecycle=findViewById(R.id.ukrecyclerposts);
         posts=new ArrayList<>();
@@ -79,10 +80,13 @@ public class UnknownUserProfile extends AppCompatActivity {
                     String name=""+dataSnapshot1.child("name").getValue();
                     String emaill=""+dataSnapshot1.child("email").getValue();
                     String image=""+dataSnapshot1.child("image").getValue();
-                    String agey=""+dataSnapshot1.child("bio").getValue();
+                    String bioy=""+dataSnapshot1.child("bio").getValue();
+                    String gen=""+dataSnapshot1.child("gender").getValue();
+                    String agey=""+dataSnapshot1.child("age").getValue()+" years"+"    "+gen;
                     nam.setText(name);
                     email.setText(emaill);
                     aget.setText(agey);
+                    biot.setText(bioy);
                     try {
 
                         if(image.isEmpty()){

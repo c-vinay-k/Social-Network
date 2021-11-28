@@ -9,13 +9,17 @@ import android.os.Bundle;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,9 +35,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-
+import java.util.List;
 
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -44,11 +49,12 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button mRegister;
     private TextView existaccount, invisible, age;
     private CheckBox showPass;
+    private Spinner spinner;
     private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;
 
     private String final_age;
-    private String final_profilepic;
+    private String gen;
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
@@ -67,6 +73,7 @@ public class RegistrationActivity extends AppCompatActivity {
         mRegister = findViewById(R.id.register_button);
         invisible = findViewById(R.id.invisible);
         existaccount = findViewById(R.id.homepage);
+        spinner = findViewById(R.id.spinner);
         age = findViewById(R.id.age);
         bio = findViewById(R.id.bio);
 
@@ -133,6 +140,33 @@ public class RegistrationActivity extends AppCompatActivity {
         });
 
 
+        //spinner.setOnItemSelectedListener(this);
+        List<String> gender = new ArrayList<String>();
+        gender.add("Male");
+        gender.add("Female");
+        gender.add("Other");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, gender);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                //Log.v("item", (String) parent.getItemAtPosition(position));
+
+                gen=(String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+
+
 
 
 
@@ -154,7 +188,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     repassword.setError("Passwords should match");
                     repassword.setFocusable(true);
                 } else {
-                    registerUser(emaill, pass, uname, bio2);
+                    registerUser(emaill, pass, uname, bio2, gen);
                 }
             }
         });
@@ -166,7 +200,21 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
-    private void registerUser(String emaill, final String pass, final String uname, final  String ubio) {
+    /*public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // On selecting a spinner item
+        String item = parent.getItemAtPosition(position).toString();
+
+        // Showing selected spinner item
+        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // TODO Auto-generated method stub
+
+    } */
+
+    private void registerUser(String emaill, final String pass, final String uname, final  String ubio, final String ugen) {
         progressDialog.show();
         mAuth.createUserWithEmailAndPassword(emaill, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -185,6 +233,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     hashMap.put("typingTo", "noOne");
                     hashMap.put("image", "");
                     hashMap.put("bio", ubio);
+                    hashMap.put("gender",ugen);
 
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference reference = database.getReference("Users");

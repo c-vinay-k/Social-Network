@@ -11,16 +11,17 @@
         android:id="@+id/textView3"
         android:layout_width="274dp"
         android:layout_height="76dp"
-        android:fontFamily="@font/amarante_regular"
+        android:textStyle="bold"
         android:text="Socialize"
         android:textAlignment="center"
         android:textColor="@color/design_default_color_primary"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.419" />
 
     <TextView
         android:id="@+id/textView4"

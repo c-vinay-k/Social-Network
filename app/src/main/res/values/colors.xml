@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#CC2E76BE</color>
+    <color name="colorPrimaryDark">#CC073D74</color>
+    <color name="colorAccent">#0A527E</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#fff</color>
+    <color name="colorGray">#F5F1F1</color>
+    <color name="colorgray01">#959595</color>
+    <color name="colorGray02">#f5f0f0</color>
+    <color name="colorGreen">#17581A</color>
+    <color name="colorRed">#F4511E</color>
+    <color name="btnRed">#E61313</color>
+    <color name="btnedit">#2CA7E0</color>
+    <color name="neutral">#0a1b97</color>
+    <color name="colordrawer">#2B2C2E</color>
+    <color name="shadow_gray">#D9D9D9</color>
+    <color name="light_gray">#D5D5D5</color>
+    <color name="light_gray_translucent">#75D5D5D5</color>
+    <color name="text_gray">#454545</color>
+    <color name="main">#8648FF</color>
+    <color name="textmainhead">#02003F</color>
+    <color name="editTextBack">#d6d6d6</color>
+    <color name="cancelRed">#F31808</color>
+    <color name="green_select">#48FF85</color>
+    <color name="change_back">#85CEFF</color>
+    <color name="change_text">#007AE4</color>
+    <color name="tinder">@color/main</color>
+    <color name="tinder_light">#BF9FFF</color>
+    <color name="background">#dddddd</color>
+    <color name="transparent"> #00FFFFFF</color>
+</resources>

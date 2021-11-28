@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/msglayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:id="@+id/rel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="end"
+        android:background="@drawable/custom_bubble_right">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilec"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_image"
+            android:visibility="gone"
+            app:civ_border_color="@null" />
+
+        <TextView
+            android:id="@+id/msgc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="15dp"
+            android:text="My Message"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+
+        <ImageView
+            android:id="@+id/images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/msgc"
+            android:layout_alignParentEnd="true"
+            android:adjustViewBounds="true"
+            android:padding="15dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_images" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/timetv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="26/11/2021 18:23"
+        android:textAlignment="textEnd"
+        android:textColor="@color/colorBlack"
+        android:textSize="12sp" />
+
+
+    <TextView
+        android:id="@+id/isSeen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="Delivered"
+        android:visibility="gone"
+        android:textAlignment="textEnd" />
+
+
+
+</LinearLayout>
